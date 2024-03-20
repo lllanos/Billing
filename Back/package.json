@@ -1,0 +1,46 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "all": "npm update && npm run dev",
+        "yacyreta": "npm update yacyreta-npm && npm run dev"
+    },
+    "devDependencies": {
+        "axios": "^0.18",
+        "cross-env": "^5.2.1",
+        "jquery": "3.4.1",
+        "laravel-mix": "^4.1.4",
+        "lodash": "^4.17.21",
+        "popper.js": "^1.16.1",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.32.8",
+        "sass-loader": "^7.3.1",
+        "vue": "^2.6.11",
+        "vue-template-compiler": "^2.6.11",
+        "webpack-cli": "^3.3.11"
+    },
+    "dependencies": {
+        "argob-poncho": "^0.3.4",
+        "bootstrap-datepicker": "^1.9.0",
+        "bootstrap-fileinput": "^5.1.4",
+        "bootstrap-fileinput-npm": "^4.2.8",
+        "bootstrap-sass": "^3.3.7",
+        "chosen-js": "^1.8.7",
+        "ckeditor": "^4.10.0",
+        "font-awesome": "^4.7.0",
+        "highcharts": "^7.2.1",
+        "inputmask": "^4.0.9",
+        "microplugin": "0.0.3",
+        "moment": "^2.24.0",
+        "node-sass": "^4.13.1",
+        "sifter": "^0.5.4",
+        "webpack": "^4.46.0",
+        "yacyreta-npm": "git+ssh://git@github.com:Matrice-Consulting/yacyreta-npm.git"
+    }
+}
