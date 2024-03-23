@@ -1,0 +1,12 @@
+FROM mysql:8.0
+
+ENV MYSQL_DATABASE yacyreta
+ENV MYSQL_USER yacyreta
+ENV MYSQL_PASSWORD root
+ENV MYSQL_ROOT_PASSWORD root
+
+EXPOSE 3306
+
+VOLUME /var/lib/mysql
+
+CMD ["mysqld"]
