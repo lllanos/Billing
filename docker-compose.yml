@@ -1,9 +1,9 @@
 version: "1"
 services:
   backend:
-    container_name: 'backend'
+    container_name: 'back'
     build:
-      context: back
+      context: Back
       dockerfile: Dockerfile_back
     links:
       - db
@@ -19,7 +19,7 @@ services:
   frontend:
     container_name: 'front'
     build:
-      context: front
+      context: Front
       dockerfile: Dockerfile_front
     links:
       - db
@@ -34,7 +34,7 @@ services:
 
   db:
     restart: always
-    container_name: 'db_mysql2'
+    container_name: 'db'
     build:
       context: db
       dockerfile: Dockerfile_mysql
