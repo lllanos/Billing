@@ -17,6 +17,9 @@ services:
       - "9011:9011"
   db:
     image: mysql:8.0
+    build:
+      context: ./db
+      dockerfile: Dockerfile_mysql
     environment:
       MYSQL_DATABASE: yacyreta
       MYSQL_USER: yacyreta
