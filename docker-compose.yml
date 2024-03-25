@@ -2,7 +2,7 @@ services:
   backend:
     container_name: 'Back'
     build:
-      context: ./Back
+      context: Back
       dockerfile: Dockerfile_back
     links:
       - db
@@ -18,7 +18,7 @@ services:
   frontend:
     container_name: 'front'
     build:
-      context: ./front
+      context: front
       dockerfile: Dockerfile_front
     links:
       - db
@@ -35,7 +35,7 @@ services:
     restart: always
     container_name: 'db'
     build:
-      context: ./db
+      context: db
       dockerfile: Dockerfile_mysql
     environment:
       MYSQL_DATABASE: 'yacyreta'
@@ -48,6 +48,8 @@ services:
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '3366:3306'
+    env_file:
+      - .env
     expose:
       # Opens port 3306 on the container
       - '3366'
