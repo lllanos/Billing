@@ -16,9 +16,9 @@ services:
       - backend:/var/www/html/storage
   
   frontend:
-    container_name: 'Front'
+    container_name: 'front'
     build:
-      context: Front
+      context: front
       dockerfile: Dockerfile_front
     links:
       - db
@@ -33,9 +33,9 @@ services:
 
   db:
     restart: always
-    container_name: 'Db'
+    container_name: 'db'
     build:
-      context: Db
+      context: db
       dockerfile: Dockerfile_mysql
     environment:
       MYSQL_DATABASE: 'yacyreta'
