@@ -12,9 +12,7 @@ services:
       - "0.0.0.0:8011:8011"
     env_file:
       - path: .env
-      - APP_DEBUG
-      - APP_ENV
-      - APP_KEY
+
     volumes:
       - backend:/var/www/html/storage
   
@@ -31,9 +29,7 @@ services:
       - "0.0.0.0:9011:9011"
     env_file:
       - path: .env
-      - APP_DEBUG
-      - APP_ENV
-      - APP_KEY
+
     volumes:
       - frontend:/var/www/html/storage
 
@@ -56,9 +52,6 @@ services:
       - '3366:3306'
     env_file:
       - path: .env
-      - APP_DEBUG
-      - APP_ENV
-      - APP_KEY
 
     expose:
       # Opens port 3306 on the container
