@@ -15,8 +15,6 @@ services:
       - APP_DEBUG
       - APP_ENV
       - APP_KEY
-        required: true # default
-        required: false
     volumes:
       - backend:/var/www/html/storage
   
@@ -36,8 +34,6 @@ services:
       - APP_DEBUG
       - APP_ENV
       - APP_KEY
-        required: true # default
-        required: false
     volumes:
       - frontend:/var/www/html/storage
 
@@ -63,8 +59,7 @@ services:
       - APP_DEBUG
       - APP_ENV
       - APP_KEY
-        required: true # default
-        required: false
+
     expose:
       # Opens port 3306 on the container
       - '3366'
