@@ -12,9 +12,11 @@ services:
       - "0.0.0.0:8011:8011"
     env_file:
       - path: .env
+      - APP_DEBUG
+      - APP_ENV
+      - APP_KEY
         required: true # default
-      - path: ./override.env
-      required: false
+        required: false
     volumes:
       - backend:/var/www/html/storage
   
@@ -30,7 +32,12 @@ services:
     ports:
       - "0.0.0.0:9011:9011"
     env_file:
-      - .env
+      - path: .env
+      - APP_DEBUG
+      - APP_ENV
+      - APP_KEY
+        required: true # default
+        required: false
     volumes:
       - frontend:/var/www/html/storage
 
@@ -52,7 +59,12 @@ services:
       # <Port exposed> : < MySQL Port running inside container>
       - '3366:3306'
     env_file:
-      - .env
+      - path: .env
+      - APP_DEBUG
+      - APP_ENV
+      - APP_KEY
+        required: true # default
+        required: false
     expose:
       # Opens port 3306 on the container
       - '3366'
