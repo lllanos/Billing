@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  frontend:
+    container_name: front
+    build: ./Dockerfile_front
+    working_dir: /app
+    command: bash -c "php artisan config:cache && php artisan serve --host=0.0.0.0 --port=9011"
+    ports:
+      - "0.0.0.0:9011:9011"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - .env  # Assuming .env file is in the same directory
+    depends_on:
+      - database
+
+  backend:
+    container_name: back
+    build: ./Dockerfile_back
+    working_dir: /app
+    command: bash -c "php artisan config:cache && php artisan serve --host=0.0.0.0 --port=8011"
+    ports:
+      - "0.0.0.0:8011:8011"
+    volumes:
+      - ./backend:/app  # Assuming backend code is in a separate directory
+    environment:
+      - .env  # Assuming .env file is in the same directory
+    depends_on:
+      - database
+
+  database:
+    restart: always
+    container_name: db
+    image: "mysql:5.7.7"
+    environment:
+      MYSQL_DATABASE: yacyreta
+      MYSQL_USER: yacyreta
+      MYSQL_PASSWORD: root  # Consider using .env for credentials
+      MYSQL_ROOT_PASSWORD: root  # Consider using .env for credentials
+    ports:
+      - "3366:3306"
+    volumes:
+      - db_vol:/var/lib/mysql
+
+volumes:
+  db_vol:
+
+networks:
+  my-network:  # Optional network for internal communication
