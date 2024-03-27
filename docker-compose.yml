@@ -4,7 +4,7 @@ services:
   backend:
     restart: unless-stopped
     container_name: 'backend'
-    build:
+    build: ./Back/Dockerfile_back
     context: Back  # Assuming a typo here, correct to "Back"
     dockerfile: Dockerfile_back
     # Uncomment and adjust if needed
@@ -19,7 +19,7 @@ services:
   frontend:
     restart: unless-stopped
     container_name: 'front'
-    build:
+    build: ./front/Dockerfile_front
     context: front
     dockerfile: Dockerfile_front
     #./Back/Dockerfile_back  # Assuming a typo here, correct to "Back"
