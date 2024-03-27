@@ -6,7 +6,7 @@ services:
       args:
         user: pgo
         uid: 1011
-      context: back
+      context: Back
       dockerfile: Dockerfile
     links:
       - db
