@@ -3,9 +3,9 @@ services:
     restart: unless-stopped
     container_name: 'backend'
     build: ./front/Dockerfile_front
-      args:
-        user: pgo
-        uid: 1011
+#      args:
+#        user: pgo
+#        uid: 1011
       context: Back
       dockerfile: Dockerfile
     links:
@@ -17,9 +17,9 @@ services:
     restart: unless-stopped
     container_name: 'front'
     build: ./Back/Dockerfile_back
-      args:
-        user: pgo
-        uid: 1011
+#      args:
+#        user: pgo
+#        uid: 1011
       context: front
       dockerfile: Dockerfile
     links:
