@@ -21,7 +21,7 @@ services:
     build:
       context: ./front  # Build context for frontend service
       dockerfile: Dockerfile_front  # Path to Dockerfile within context
-    links:
+    depends_on:
       - db
     ports:
       - "0.0.0.0:9000:9011"
@@ -32,7 +32,8 @@ services:
     build:
       context: ./Back  # Assuming a typo here, correct to "Back" (build context)
       dockerfile: Dockerfile_back  # Path to Dockerfile within context
-    links:
+    depends_on:
+      - frontend
       - db
     ports:
       - "0.0.0.0:8000:8011"
