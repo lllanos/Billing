@@ -111,4 +111,4 @@ RUN setfacl -d -R -m u:$USER:rwx,g:www-data:rwx,o:rx /var/www/html
 #RUN pecl install xdebug \
 #    && docker-php-ext-enable xdebug
 
-#CMD ["php", "artisan", "schedule:run", "--host=0.0.0.0", "--port=8000"]
+#CMD ["php", "artisan", "schedule:run", "--host=0.0.0.0", "--port=8011"]
