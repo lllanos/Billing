@@ -7,7 +7,7 @@ services:
         user: pgo
         uid: 1011
       context: Back
-      dockerfile: 
+      dockerfile: Dockerfile
     links:
       - db
     ports:
@@ -21,7 +21,7 @@ services:
         user: pgo
         uid: 1011
       context: front
-      dockerfile: 
+      dockerfile: Dockerfile
     links:
       - db
     ports:
@@ -32,7 +32,7 @@ services:
     container_name: 'db_mysql2'
     build: ./db/Dockerfile_mysql
       context: db
-      dockerfile: 
+      dockerfile: Dockerfile
     environment:
       MYSQL_DATABASE: 'yacyreta'
       # So you don't have to use root, but you can if you like
