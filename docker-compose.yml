@@ -2,12 +2,12 @@ services:
   backend:
     restart: unless-stopped
     container_name: 'backend'
-    build: 
+    build: ./front/Dockerfile_front
       args:
         user: pgo
         uid: 1011
       context: Back
-      dockerfile: ./front/Dockerfile_front
+      dockerfile: 
     links:
       - db
     ports:
@@ -16,12 +16,12 @@ services:
   frontend:
     restart: unless-stopped
     container_name: 'front'
-    build: 
+    build: ./Back/Dockerfile_back
       args:
         user: pgo
         uid: 1011
       context: front
-      dockerfile: ./Back/Dockerfile_back
+      dockerfile: 
     links:
       - db
     ports:
@@ -30,9 +30,9 @@ services:
   db:
     restart: always
     container_name: 'db_mysql2'
-    build:
+    build: ./db/Dockerfile_mysql
       context: db
-      dockerfile: ./db/Dockerfile_mysql
+      dockerfile: 
     environment:
       MYSQL_DATABASE: 'yacyreta'
       # So you don't have to use root, but you can if you like
