@@ -6,7 +6,7 @@ services:
     container_name: 'backend'
     build:
       context: ./Back  # Assuming a typo here, correct to "Back" (build context)
-      dockerfile: Dockerfile_front  # Path to Dockerfile within context
+      dockerfile: Dockerfile_back  # Path to Dockerfile within context
     links:
       - db
     ports:
@@ -17,7 +17,7 @@ services:
     container_name: 'front'
     build:
       context: ./front  # Build context for frontend service
-      dockerfile: Dockerfile_back  # Path to Dockerfile within context
+      dockerfile: Dockerfile_front  # Path to Dockerfile within context
     links:
       - db
     ports:
