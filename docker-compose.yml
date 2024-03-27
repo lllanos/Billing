@@ -18,7 +18,8 @@ services:
   frontend:
     restart: unless-stopped
     container_name: 'front'
-    volumes: - .env:/app/.env  # Mount the host `.env` file to `/app/.env` inside the container
+    volumes:
+    - .env:/app/.env  # **Corregido: Indentación añadida**
     build:
       context: ./front  # Build context for frontend service
       dockerfile: Dockerfile_front  # Path to Dockerfile within context
@@ -30,7 +31,8 @@ services:
   backend:
     restart: unless-stopped
     container_name: 'backend'
-    volumes: - .env:/app/.env  # Mount the host `.env` file to `/app/.env` inside the container
+    volumes:
+    - .env:/app/.env  # **Corregido: Indentación añadida**
     build:
       context: ./Back  # Assuming a typo here, correct to "Back" (build context)
       dockerfile: Dockerfile_back  # Path to Dockerfile within context
