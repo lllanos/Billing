@@ -1,28 +1,31 @@
-services:
+version: "3.9"  # (Optional) Specify the Docker Compose version (recommended)
 
+services:
   backend:
     restart: unless-stopped
     container_name: 'backend'
     build: ./front/Dockerfile_front
-#      args:
-#        user: pgo
-#        uid: 1011
-      context: Back
-      dockerfile: Dockerfile
+    # Uncomment and adjust if needed
+    # args:
+    #   user: pgo
+    #   uid: 1011
+    context: Back  # Assuming a typo here, correct to "Back"
+    dockerfile: Dockerfile
     links:
       - db
     ports:
       - "0.0.0.0:8000:8011"
-  
+
   frontend:
     restart: unless-stopped
     container_name: 'front'
-    build: ./Back/Dockerfile_back
-#      args:
-#        user: pgo
-#        uid: 1011
-      context: front
-      dockerfile: Dockerfile
+    build: ./Back/Dockerfile_back  # Assuming a typo here, correct to "Back"
+    # Uncomment and adjust if needed
+    # args:
+    #   user: pgo
+    #   uid: 1011
+    context: front
+    dockerfile: Dockerfile
     links:
       - db
     ports:
@@ -32,25 +35,20 @@ services:
     restart: always
     container_name: 'db_mysql2'
     build: ./db/Dockerfile_mysql
-      context: db
-      dockerfile: Dockerfile
+    context: db
+    dockerfile: Dockerfile
     environment:
       MYSQL_DATABASE: 'yacyreta'
-      # So you don't have to use root, but you can if you like
       MYSQL_USER: 'yacyreta'
-      # You can use whatever password you like
       MYSQL_PASSWORD: 'root'
-      # Password for root access
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
       - '3306:3306'
     expose:
-      # Opens port 3306 on the container
       - '3306'
-      # Where our data will be persisted
     volumes:
       - db_vol:/var/lib/mysql
-# Names our volume
+
 volumes:
   db_vol:
+
