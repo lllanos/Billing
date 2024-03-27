@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     container_name: 'backend'
     build: ./Back/Dockerfile_back
-    context: Back  # Assuming a typo here, correct to "Back"
+    context: ./Back  # Assuming a typo here, correct to "Back"
     #dockerfile: Dockerfile_back
     # Uncomment and adjust if needed
     # args:
@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
     container_name: 'front'
     build: ./front/Dockerfile_front
-    context: front
+    context: ./front
     #dockerfile: Dockerfile_front
     #./Back/Dockerfile_back  # Assuming a typo here, correct to "Back"
     # Uncomment and adjust if needed
@@ -36,7 +36,7 @@ services:
     restart: always
     container_name: 'db_mysql2'
     build: ./db/Dockerfile_mysql
-    context: db
+    context: ./db
     dockerfile: Dockerfile
     environment:
       MYSQL_DATABASE: 'yacyreta'
