@@ -1,26 +1,19 @@
 #######
 # ├── Billing
 # │   ├── docker-compose.yml
+# │   ├── .env
+# │   ├── .dockerignore
+# │   └── front
+# │   |   └── Dockerfile_front
 # │   ├── Back
 # │   │   └── Dockerfile_back
 # │   ├── db
 # │   │   └── Dockerfile_mysql
-# │   └── front
-# │       └── Dockerfile_front
+
 #######
 version: "3.9"  # (Optional)
 
 services:
-  backend:
-    restart: unless-stopped
-    container_name: 'backend'
-    build:
-      context: ./Back  # Assuming a typo here, correct to "Back" (build context)
-      dockerfile: Dockerfile_back  # Path to Dockerfile within context
-    links:
-      - db
-    ports:
-      - "0.0.0.0:8000:8011"
 
   frontend:
     restart: unless-stopped
@@ -32,6 +25,17 @@ services:
       - db
     ports:
       - "0.0.0.0:9000:9011"
+
+  backend:
+    restart: unless-stopped
+    container_name: 'backend'
+    build:
+      context: ./Back  # Assuming a typo here, correct to "Back" (build context)
+      dockerfile: Dockerfile_back  # Path to Dockerfile within context
+    links:
+      - db
+    ports:
+      - "0.0.0.0:8000:8011"
 
   db:
     restart: always
